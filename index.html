@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Selectors. Specificity.</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>№</th>
+                <th>Типы Селекторов</th>
+                <th>Описание</th>
+                <th>CSS</th>
+                <th>Пример</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>По тегу</td>
+                <td class="description">
+                    Селектор по тегу находит элемент на странице по имени тега.
+                </td>
+                <td>
+                    <pre>
+span{
+background-color: blue;
+    }
+                </pre
+                    >
+                </td>
+                <td class="view">
+                    <p>Это первый абзац текста.</p>
+                    <p>А это уже второй.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>По классу</td>
+                <td class="description">
+                    Селектор по классу находит элемент на странице по значению
+                    атрибута class. Самое важное — поставить точку перед
+                    значением атрибута class того элемента, к которому вы хотите
+                    применить стили.
+                </td>
+                <td>
+                    <pre>
+.class{
+ color: red;
+      }
+                </pre
+                    >
+                </td>
+                <td>
+                    <h2 class="news__local">В Украине</h2>
+                    <h2 class="news__world">В мире</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>По идентификатору</td>
+                <td class="description">
+                    Селектор по идентификатору находит на странице элемент,
+                    которому задан атрибут id с конкретным значением.
+                </td>
+                <td>
+                    <pre>
+ #first {
+ color: yellow;
+        }
+                </pre
+                    >
+                </td>
+                <td>
+                    <p id="first" class="paragraph">
+                        Эстетика - наука о законах красоты.
+                    </p>
+                    <div id="second">
+                        Только сяду за учёбу — обязательно разбудят.
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Потомка</td>
+                <td class="description">
+                    Цепочка перечисленных через пробел селекторов обозначает
+                    вложенность от родительских элементов к потомку. Это
+                    позволяет управлять стилями вложенных элементов. HTML
+                    элемент, расположенный внутри другого элемента является его
+                    потомком. Элемент &lt;title&gt; потомок &lt;head&gt;, а
+                    элемент &lt;h2&gt; и &lt;p&gt; потомки &lt;body&gt;.
+                    Элементы пишутся через (" ") пробел.
+                </td>
+                <td>
+                    <pre>
+p a {
+    color: violet;
+    }
+                </pre
+                    >
+                </td>
+                <td>
+                    <div>
+                        <p class="text">
+                            Не откладывай до завтра, что можешь сделать сегодня.
+                        </p>
+                        <div class="news-card">
+                            <h2 class="news-сard__title">
+                                Самые распрастраненные слова в школе: "а че
+                                сразу я?"
+                            </h2>
+                            <p class="text news-card__text">
+                                У студента два критических периода в жизнии оба
+                                — сессия.
+                            </p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Универсальный</td>
+                <td class="description">
+                    Селектор * (универсальный селектор) позволяет выбрать все
+                    элементы внутри документа. Селектор также может выбрать все
+                    элементы внутри другого элемента.
+                </td>
+                <td>
+                    <pre>
+*{
+    color: green;
+ }
+                </pre
+                    >
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>По атрибуту</td>
+                <td class="description">
+                    Селектор по атрибуту находит элемент на странице по значению
+                    либо по наличию атрибута.
+                </td>
+                <td>
+                    <pre>
+blockquote[cite]{
+    background-color: gray;
+    color: gold;
+                 }
+                </pre
+                    >
+                </td>
+                <td>
+                    <blockquote cite="Л.Н.ТОЛСТОЙ">
+                        СЧАСТЬЕ НЕ В ТОМ, ЧТОБЫ ДЕЛАТЬ ВСЕГДА, ЧТО ХОЧЕШЬ, А В
+                        ТОМ,<br />
+                        ЧТОБЫ ВСЕГДА ХОТЕТЬ ТОГО, ЧТО ДЕЛАЕШЬ.;
+                    </blockquote>
+                </td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Комбинированные</td>
+                <td class="description">
+                    Можно задать единый стиль не только одному селектору, но и
+                    группе селекторов. При перечислении селекторов необходимо
+                    обязательно разделять их запятой.
+                </td>
+                <td>
+                    <pre>
+.selector,
+code,
+#id,
+blockquote[cite]{
+  color: red;
+}
+                </pre
+                    >
+                </td>
+                <td>
+                    <article class="article">
+                        Убийство, то есть умышленное противоправное причинение
+                        смерти другому человеку.
+                        <h3 class="article__heading">
+                            Наказывается лишением свободы на срок от семи до
+                            пятнадцати лет.
+                        </h3>
+                    </article>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
